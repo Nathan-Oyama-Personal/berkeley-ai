@@ -9,6 +9,14 @@ FEBRUARY 26, 2025. In this assignment, I analyzed the coupon usage dataset (prob
   - Dataset: [./module05/coupons.csv](./module05/coupons.csv)
 
 
+
+## Required Assignment 11: What drives the price of a car?
+
+APRIL 15, 2025. IN DEVELOPMENT
+
+
+---
+
 **Disclaimer:** This Git repository is solely used for this online course. Any contents in this repository do not necessarily reflect my views or positions.
 
 Nathan Oyama. nathan.oyama[&alpha;&tau;]berkeley.edu.
