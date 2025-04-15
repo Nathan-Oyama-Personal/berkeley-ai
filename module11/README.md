@@ -13,26 +13,66 @@ After your cusotmers choose the model(s), you can help them select the right car
 
 ## Goal: Making models to predict the price of a car
 
+**The price models differ across car models.** For example, you cannot use the same price model with VW Beatle and Mercedes-Benz S-Class. In this data analysis, I selected the three most popular car models--Ford F-150 (truck), Toyota Camry (sedan), and Jeep Wrangler (SUV)--to make three pricing models.
 
-## Factors of the pricing model
+Decide the following parameters to predict the price of a car:
 
-**Condition**
 
-**Model year**
+**Condition** There are six condition grades: "New", "Like new", "Excellent", "Good", "Fair", and "Salvage". Most cars have either condition grade, but some records do not ("Unknown").
+
+**Odometer mileage** Most cars have the odometer mileage reading between 0 mile and 299,999 miles. I discarded other cars which drove 300,000 miles or even more as instructed in the next section.
+
+**Model year** Most records contain one of the model years ranging betwen 1900 and 2022.
 
 
 
 ## Cleaning Data
 
-The original data set contains some invalid records such as the most expensive car being priced at $3.7bn, and those few samples with extremely unusual values can affect the data analysis and modeling. In this data analysis, I removed the following samples:
+The original data set contains some invalid records such as the most expensive car being priced at $3.7bn, and those few samples with extremely unusual values can affect the data analysis and modeling. In this data analysis, I removed the following cars from the data set:
 
-* Cars with unreasonable model names.
+* Cars with unreasonable model names (e.g. "SPECIAL FINANCE PROGRAM 2021")
 
-* Top 0.1% cars (> $95,000)
+* Cars with top 0.1% price tags (> $95,000)
 
-* Odometer mileage of 300,000 miles or greater
+* Cars with odometer mileage of 300,000 miles or greater
 
-**Expensive cars (> $95,000)**
+
+The following cars are intentionally kept:
+
+* Cars of unknown conditions
+
+* Cars with no VIN
+
+
+## Classifying cars into price tiers
+
+Price tier     | Minimum price | Maximum price | Percentile |
+---------------|---------------|---------------|------------|
+Cheap cars     | $0            | $999          | 10.3%      |
+Typical cars   | $1,000        | $69,000       | 99.2%      |
+Expensive cars | $70,000       | $94,999       | 99.8%      |
+
+
+## Modeling (polynomial, k-fold cross validation)
+
+Use the _k_-fold cross validation method to get the following polynomial model:
+
+$$\hat{y} = \sum_{j=1}^{d} \theta_{j} \phi_{j} + \alpha$$
+
+where 
+
+* $\hat{y}$ : the predicted price
+* $\theta_{j}$ : the coefficients
+* $\phi_{j}$ : The input values
+* $d$ : the number of features/parameters
+* $\alpha$ : the intercept term
+
+
+Sample model  | Condition | Mileage $([\theta]_{j}, \alpha)$ | Model Year $([\theta]_{j}, \alpha)$ |
+--------------|-----------|----------------------------------|-------------------------------------|
+Ford F-150    | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
+Toyota Camry  | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
+Jeep Wrangler | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
 
 
 ---
