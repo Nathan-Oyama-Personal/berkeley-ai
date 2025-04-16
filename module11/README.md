@@ -55,9 +55,13 @@ Typical cars   | $1,000        | $69,999       | 99.2%      |
 Expensive cars | $70,000       | $94,999       | 99.8%      |
 
 
-## Modeling (polynomial, k-fold cross validation)
+## Modeling: Ridge regression on the LASSO model
 
-Use the _k_-fold cross validation method to get the following polynomial model:
+Use the Ridge regression on the LASSO model.
+
+* **Input:** odometer (mileage), model year
+
+* **Output:** price
 
 $$\hat{y} = \sum_{j=1}^{d} \theta_{j} \phi_{j} + \alpha$$
 
@@ -70,13 +74,6 @@ where
 * $\alpha$ : the intercept term
 
 
-Sample model  | Condition | Mileage $([\theta]_{j}, \alpha)$ | Model Year $([\theta]_{j}, \alpha)$ |
---------------|-----------|----------------------------------|-------------------------------------|
-Ford F-150    | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
-Toyota Camry  | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
-Jeep Wrangler | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
-
-Price tiers: $1,000 to $69,999 ("typical cars")
 
 ---
 
