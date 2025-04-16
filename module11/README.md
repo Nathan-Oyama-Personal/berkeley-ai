@@ -4,7 +4,7 @@ Nathan Oyama's Workspace for UC Berkeley Machine Learning &amp; Artificial Intel
 
 April 15, 2025
 
-* Notebook: prompt_II.ipynb
+* Notebook: [./prompt_II.ipynb](./prompt_II.ipynb)
 
 ---
 
