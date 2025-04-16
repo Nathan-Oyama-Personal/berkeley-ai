@@ -4,6 +4,8 @@ Nathan Oyama's Workspace for UC Berkeley Machine Learning &amp; Artificial Intel
 
 April 15, 2025
 
+* Notebook: prompt_II.ipynb
+
 ---
 
 To use this data analysis based on the given data set, your customers need to select models _elsewhere_ because the data set does not include sufficient information to distinguish one model or variant from another. For example, assume that someone is looking for a pickup truck with two rows of seats to sit six passengers such as some kind of Ford F-150. But Ford F-150 used to have a variant for a single-row seat configuration which is not what he is looking for. The data set put all kinds of Ford F-150 into the same model, and there is no "seat count" field. He would also prefer Chevy Silverado over Ford F-150 when it comes to the grill design.
@@ -49,7 +51,7 @@ The following cars are intentionally kept:
 Price tier     | Minimum price | Maximum price | Percentile |
 ---------------|---------------|---------------|------------|
 Cheap cars     | $0            | $999          | 10.3%      |
-Typical cars   | $1,000        | $69,000       | 99.2%      |
+Typical cars   | $1,000        | $69,999       | 99.2%      |
 Expensive cars | $70,000       | $94,999       | 99.8%      |
 
 
@@ -74,6 +76,7 @@ Ford F-150    | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)     
 Toyota Camry  | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
 Jeep Wrangler | Good      | ([0,0,0], 0)                     | ([0,0,0], 0)                        |
 
+Price tiers: $1,000 to $69,999 ("typical cars")
 
 ---
 

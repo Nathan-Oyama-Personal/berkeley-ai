@@ -12,7 +12,7 @@ FEBRUARY 26, 2025. In this assignment, I analyzed the coupon usage dataset (prob
 
 ## Required Assignment 11: What drives the price of a car?
 
-APRIL 15, 2025. IN DEVELOPMENT
+APRIL 15, 2025. See [./module11/README.md](./module11/README.md) and [./module11/prompt_II.ipynb](./module11/prompt_II.ipynb).
 
 
 ---
