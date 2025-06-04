@@ -1,4 +1,4 @@
-# Module 16: What drives the price of a car?
+# Module 16: Comparing Classifiers
 
 Nathan Oyama's Workspace for UC Berkeley Machine Learning &amp; Artificial Intelligence 2025
 

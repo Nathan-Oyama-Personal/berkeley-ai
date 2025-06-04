@@ -15,6 +15,12 @@ FEBRUARY 26, 2025. In this assignment, I analyzed the coupon usage dataset (prob
 APRIL 15, 2025. See [./module11/README.md](./module11/README.md) and [./module11/prompt_II.ipynb](./module11/prompt_II.ipynb).
 
 
+## Required Assignment 16: Comparing Classifiers
+
+JUNE 4, 2025. See [./module16/README.md](./module16/README.md) and [./module16/prompt_III.ipynb](./module16/prompt_III.ipynb).
+
+
+
 ---
 
 **Disclaimer:** This Git repository is solely used for this online course. Any contents in this repository do not necessarily reflect my views or positions.
