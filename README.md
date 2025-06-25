@@ -20,6 +20,9 @@ APRIL 15, 2025. See [./module11/README.md](./module11/README.md) and [./module11
 JUNE 4, 2025. See [./module16/README.md](./module16/README.md) and [./module16/prompt_III.ipynb](./module16/prompt_III.ipynb).
 
 
+## Required Assignment 20: Capstone Assignment 20.1: Initial Report and Exploratory Data Analysis (EDA)
+
+JUNE 25, 2025. See [./module20/README.md](./module20/README.md) and [./module20/eda.ipynb](./module20/eda.ipynb).
 
 ---
 
