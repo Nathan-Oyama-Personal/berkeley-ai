@@ -1,17 +1,38 @@
-### Project Title
+### Capstone Assignment 20.1: Initial Report and Exploratory Data Analysis (EDA) 
 
-**Author**
+Nathan Oyama (Group C)
+
 
 #### Executive summary
 
+Where should we build solar power plants in the United States?
+
+Suppose that you want to build a new solar power plant somewhere in the United States. Which city or region would you choose? There are several factors to consider: 
+
+* Climates (sunshine durations)
+* Land values
+* Proximity to large cities
+
+
 #### Rationale
-Why should anyone care about this question?
+
+There should be specific locations and conditions where solar power plants make sense. For example, you would want to build solar power plants near Las Vegas, where land values are very low, many sunny days, and close to the large city--more than Barrow, Alaska, which is the northernmost small city.
+
 
 #### Research Question
 What are you trying to answer?
 
+
 #### Data Sources
-What data will you use to answer you question?
+
+Check the existing solar power plants in the United States, their sunshine durations, and the land values:
+
+* US Geological Survey: "The United States Large-Scale Solar Photovoltaic Database (USPVDB) ". US Department of the Interior. energy.usgs.gov/uspvdb/data.
+
+* Kaggle: "Percent Sunshine by US City". kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city.
+
+* Zillow: "ZHVI 3-Bedroom Time Series($) - Metro & US". zillow.com/research/data.
+
 
 #### Methodology
 What methods are you using to answer the question?
@@ -22,11 +43,12 @@ What did your research find?
 #### Next steps
 What suggestions do you have for next steps?
 
+
 #### Outline of project
 
-- [Link to notebook 1]()
-- [Link to notebook 2]()
-- [Link to notebook 3]()
+- [Capstone Assignment 20.1: Initial Report and Exploratory Data Analysis (EDA) (Jupyter Notebook)](./eda.ipynb)
+# - [Link to notebook 2]()
+# - [Link to notebook 3]()
 
 
 ##### Contact and Further Information
