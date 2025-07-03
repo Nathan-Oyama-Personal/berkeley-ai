@@ -31,7 +31,7 @@ Check the existing solar power plants in the United States, their sunshine durat
 
 * Kaggle: "Percent Sunshine by US City". kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city.
 
-* Zillow: "ZHVI 3-Bedroom Time Series($) - Metro & US". zillow.com/research/data.
+* Zillow: "ZHVI 3-Bedroom Time Series($) - City". zillow.com/research/data.
 
 
 #### Methodology
@@ -47,8 +47,6 @@ What suggestions do you have for next steps?
 #### Outline of project
 
 - [Capstone Assignment 20.1: Initial Report and Exploratory Data Analysis (EDA) (Jupyter Notebook)](./eda.ipynb)
-# - [Link to notebook 2]()
-# - [Link to notebook 3]()
 
 
 ##### Contact and Further Information
