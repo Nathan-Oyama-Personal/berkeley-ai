@@ -30,7 +30,22 @@ Check the existing solar power plants in the United States, their sunshine durat
 * Pareto Software: "United States Cities Database - Basic". 9 Jun 2025. simplemaps.com/data/us-cities.
 
 
-In Section 4 (_"Combining Four DataFrames into One"_), you will combine the four DataFrames from the previous section into one: `df_solar`.
+In Section 4 (_"Combining Four DataFrames into One"_), you will combine the four DataFrames from the previous section into one: `df_solar`: 
+
+
+Table 1: The columns in the sample data set
+
+| Column       | Example         | Data Sets                                |
+| :------------| :-------------- | :--------------------------------------- |
+| City name    | ALAMEDA, CA     | City, Sunshine, Land Value, Photovoltaic |
+| Longitude    | -149.789413     | City, Photovoltaic                       |
+| Latitude     | 61.587349       | City, Photovoltaic                       |
+| Jan ... Dec  | 58              | Sunshine                                 |
+| Current      | 14.4            | Photovoltaic                             |
+| Land Value   | $840,048.91...  | Land Value                               |
+
+In the machine learning process, use the logarithm of the currents instead of the original currents to increase the model accuracy.
+
 
 #### Methodology
 
@@ -59,11 +74,11 @@ $$\frac{1}{n_{\textrm{features}} X.\textrm{var()}}$$
 
 $$\frac{1}{n_{\textrm{features}}}$$
 
-For each algorithm, train a model by using the training set $X_{\textrm{train}}$ and $y_{\textrm{train}}$, apply this model to $X_{\textrm{test}}$ to predict the current field, and get the mean square error (MSE) of the predictd current valus with the actual values in $y_{\textrm{test}}$. Perform this operation for each hyperparameter to get the MSEs.
+For each algorithm, train a model by using the training set $X_{\textrm{train}}$ and $y_{\textrm{train}}$, apply this model to $X_{\textrm{test}}$ to predict the current field, and get the mean square error (MSE) of the predicd current values with the actual values in $y_{\textrm{test}}$. Perform this operation for each hyperparameter to get the MSEs.
 
 
-Algorithm with best hyperparameters |  Lowest MSE score
-------------------------------------|------------------
+Algorithm with best hyperparameters | Lowest MSE score
+------------------------------------|-----------------
 Linear regression                   | 4.1537
 K-nearest neighbors                 | 3.0855
 Decision tree                       | 4.432
@@ -71,7 +86,7 @@ Ridge regression                    | 3.991
 SVR                                 | 3.6409
 Ensemble voting regression          | 3.2892
 
-As you can see, the k-nearest neighbors returned the lowest MSE score which means that the model using this algorithm with a certain hyperparameter was the most accurate. Manually repeat this model assessment and fidn the best hyperparameter, and you can find the model with 5 neighbors returned the same lowest MSE score.
+As you can see, the k-nearest neighbors returned the lowest MSE score which means that the model using this algorithm with a certain hyperparameter was the most accurate. Manually repeat this model assessment and find the best hyperparameter, and you can find the model with 5 neighbors returned the same lowest MSE score.
 
 Apply the same algorithm and the hyper parameter, that is, the k-nearest neighbors with 5 neighbors to the entire first group to train a new model which may be more accurate because of the larger sample data set. For the second group of the DataFrame which did not have a valid value in the Current field, drop the column to make a feature DataFrame $X_\textrm{predict}$. Apply the new model to the feature DataFrame $X_\textrm{predict}$ and you can get the predicted Current values for the 49 cities listed in the second group of the data set.
 
@@ -82,10 +97,10 @@ Apply the same algorithm and the hyper parameter, that is, the k-nearest neighbo
 
 Sort the second group of data set by the predicted current. The cities with the high predicted current have features that are similar to the other cities in which solar power plants are already built. 
 
-**The most favorable cities to build solar power plants** with the hghest predicted current are listed as follows:
+**The most favorable cities to build solar power plants** with the highest predicted current are listed as follows:
 
-US City     | Land Value | Population | Density | Latitude | June | November | Current (MW)
-------------|------------|------------|---------|----------|------|----------|-------------
+US City     | Land Value | Population | Density | Latitude | June | November | Current (MWh)
+------------|------------|------------|---------|----------|------|----------|--------------
 Key West, FL | $1,285,405 | 25,824 | 1780.7 | 24.6 | 77 | 71 | 361.9
 Jackson, MS | $85,274 | 331,332 | 518.0 | 32.3 | 70 | 55 | 161.2
 Flagstaff, AZ | $650,010 | 77,868 | 446.4 | 35.2 | 88 | 72 | 129.6
@@ -95,8 +110,8 @@ Ely, NV | $255,374 | 3,941 | 199.5 | 39.3 | 81 | 65 | 108.2
 
 **The least favorable cities to build solar power plants** with the lowest predicted current are listed as follows:
 
-US City     | Land Value | Population | Density | Latitude | June | November | Current (MW)
-------------|------------|------------|---------|----------|------|----------|-------------
+US City     | Land Value | Population | Density | Latitude | June | November | Current (MWh)
+------------|------------|------------|---------|----------|------|----------|--------------
 Omaha, NE | $278,435 | 826,161 | 1318.9 | 41.3 | 72 | 49 | 8.6
 Dodge City, KS | $237,736 | 27,652 | 711.1 | 37.8 | 77 | 63 | 10.1
 Concordia, KS | $143,484 | 5,067 | 434.4 | 39.6 | 78 | 59 | 10.1
@@ -127,17 +142,15 @@ OCT | -0.010082
 lng | -0.010163
 SEP | -0.012938
 
-That is, the latitude is the most important factor to determine the predicted current of each city. Other important features are the sunshine hours of November and July; November ends 20 days prior to the winter solistice, and July starts 10 days after the summer solistice. Interestingly enough, the sunshine hours of December and June have relatively low important scores. The other important features are the land value which is the average price of the 3-bedroom houses and the population density. The population of the city has the moderate importance score. The least important features are the sunshine hours of September and October, and the longitude which might not be very relevant to the economy or climate of the cities.
+That is, the latitude is the most important factor to determine the predicted current of each city. Other important features are the sunshine hours of November and July; November ends 20 days prior to the winter solstice, and July starts 10 days after the summer solstice. Interestingly enough, the sunshine hours of December and June have relatively low important scores. The other important features are the land value which is the average price of the 3-bedroom houses and the population density. The population of the city has the moderate importance score. The least important features are the sunshine hours of September and October, and the longitude which might not be very relevant to the economy or climate of the cities.
 
 The results look reasonable. The most favorable city to build a new solar power plant is Key West, Florida, which is the southernmost city of Florida, observes many sunshine hours in summer and winter. Note that the land value of Key West is very high which might imply that people there should be wealthy enough to invest, build, and operate solar power plants. The least favorable city to build a new solar power plant was Omaha, Nebraska. Omaha rarely observes sunshine hours in winter, and the land value is relatively low despite the large population and high population density.
 
 
 #### Further analysis
 
-The models and predicted currents they made could have questionable accuracies due to the small sample data set. The original data set for the sunshine hours only contained 
+The models and predicted currents they made could have questionable accuracies due to the small sample data set. The original data set for the sunshine hours only contains *** city records. Merging other data sets reduces this number to even lower: 133 city records. In the 133 city records, 84 city records have the current values whereas the other 49 records do not. With this small sample set, you built the model based on the 84 city records and predicted the currents of 49 cities.
 
-df_solar         ... 133
-Current_log is not null ... 84
-Current_log is     null ... 49
+The original city data set contains as many as 31,254 city records although it might not be meaningful to compare between two adjacent small cities such as Berkeley and Oakland. You may want to have a greater data set of sunshine hours for every US city--or every US county. There are 3,242 counties in the United States, and this number is still much greater than 133, and such a decent data set will make the model even more accurate. In that case, you may need to assess the algorithms and hyperparameters to rebuild a new, better model.
 
-
+You used 17 features, and these features might be quite relevant to predict the current of solar power plants&mdash;except the longitude. You may want to add more relevant features such as the distance from the sea, political factors such as the renewable energy policies in the local government, as well as "susipcious features" such as the elevation of the cities or counties.
