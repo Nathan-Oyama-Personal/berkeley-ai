@@ -55,14 +55,14 @@ For the first group of DataFrame which has values in the Current column, shuffle
 
 To find the best algorithm and hyperparameters, apply cross validation for the first group of the DataFrame. That is, train the model $X_{\textrm{train}}$ and $y_{\textrm{train}}$ by using the following algorithms and hyperparameters: 
 
-| Algorithm           | Method of scikit-learn    | Hyperparameter |
-|---------------------|---------------------------|-----------------------------|
-| Linear regression   | `LinearRegression()`      | None                         |
-| K-nearest neighbors | `KNeighborsRegressor()`   | Number of neighbors: 3, 5, 7 |
-| Decision tree       | `DecisionTreeRegressor()` | Maximum depth: 3, 5, 7       |
-| Ridge regression    | `Ridge()`                 | Constant that multiplies the L2 term $\alpha$: 0.1, 1.0, 10.0 |
+| Algorithm           | Method of scikit-learn     | Hyperparameter |
+|---------------------|----------------------------|-----------------------------|
+| Linear regression   | `LinearRegression()`       | None                         |
+| K-nearest neighbors | `KNeighborsRegressor()`    | Number of neighbors: 3, 5, 7 |
+| Decision tree       | `DecisionTreeRegressor()`  | Maximum depth: 3, 5, 7       |
+| Ridge regression    | `Ridge()`                  | Constant that multiplies the L2 term $\alpha$: 0.1, 1.0, 10.0 |
 | Support vector regression (SVR) | `SVR()` | $C$ (an inverse of the strength of regularization: 0.1, 1.0, 10.0;<br>$\gamma$ (gamma): scale or auto |
-| Ensemble voting regression | `VotingRegressor` | Use all  the other algorithms.<br>CV 2;<br>scoring: the negative mean squared error |
+| Ensemble voting regression | `VotingRegressor()` | Use all  the other algorithms.<br>CV 2;<br>scoring: the negative mean squared error |
 
 For the SVR algorithm, there are two types of the $\gamma$ values: 
 
