@@ -13,7 +13,7 @@ Suppose that you want to build a new solar power plant somewhere in the United S
 
 #### Rationale
 
-There should be specific locations and conditions where building solar power plants make sense. For example, you would want to build solar power plants near Las Vegas, where land values are very low, many sunny days, and close to the large city--more than Barrow, Alaska, which is the northernmost small city.
+There should be specific locations and conditions where building solar power plants make sense. For example, you would want to build solar power plants near Las Vegas, where land values are very low, many sunny days, and close to the large city&mdash;more than Barrow, Alaska, which is the northernmost small city.
 
 
 
@@ -151,6 +151,6 @@ The results look reasonable. The most favorable city to build a new solar power 
 
 The models and predicted currents they made could have questionable accuracies due to the small sample data set. The original data set for the sunshine hours only contains 158 city records. Merging other data sets reduces this number to even lower: 133 city records. In the 133 city records, 84 city records have the current values whereas the other 49 records do not. With this small sample set, you built the model based on the 84 city records and predicted the currents of 49 cities.
 
-The original city data set contains as many as 31,254 city records although it might not be meaningful to compare between two adjacent small cities such as Berkeley and Oakland. You may want to have a greater data set of sunshine hours for every US city--or every US county. There are 3,242 counties in the United States, and this number is still much greater than 133, and such a decent data set will make the model even more accurate. In that case, you may need to assess the algorithms and hyperparameters to rebuild a new, better model.
+The original city data set contains as many as 31,254 city records although it might not be meaningful to compare between two adjacent small cities such as Berkeley and Oakland. You may want to have a greater data set of sunshine hours for every US city&mdash;or every US county. There are 3,242 counties in the United States, and this number is still much greater than 133, and such a decent data set will make the model even more accurate. In that case, you may need to assess the algorithms and hyperparameters to rebuild a new, better model.
 
 You used 17 features, and these features might be quite relevant to predict the current of solar power plants&mdash;except the longitude. You may want to add more relevant features such as the distance from the sea, political factors such as the renewable energy policies in the local government, as well as "susipcious features" such as the elevation of the cities or counties.
