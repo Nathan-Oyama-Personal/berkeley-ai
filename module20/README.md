@@ -19,7 +19,7 @@ There should be specific locations and conditions where building solar power pla
 
 #### Data Sources and Exploratory Data Analysis (EDA)
 
-Check the existing solar power plants in the United States, their sunshine durations, and the land values:
+Check the existing solar power plants in the United States, their sunshine durations, the land values, and city profiles:
 
 * Kaggle: "Percent Sunshine by US City". 18 Jan 2023. kaggle.com/datasets/thedevastator/annual-percent-of-possible-sunshine-by-us-city.
 
@@ -40,6 +40,8 @@ Table 1: The columns in the sample data set
 | City name    | ALAMEDA, CA     | City, Sunshine, Land Value, Photovoltaic |
 | Longitude    | -149.789413     | City, Photovoltaic                       |
 | Latitude     | 61.587349       | City, Photovoltaic                       |
+| Population   | 25,824          | City                                     |
+| Density      | 1780.7          | City                                     |
 | Jan ... Dec  | 58              | Sunshine                                 |
 | Current      | 14.4            | Photovoltaic                             |
 | Land Value   | $840,048.91...  | Land Value                               |
