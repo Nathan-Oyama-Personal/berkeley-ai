@@ -33,7 +33,7 @@ Check the existing solar power plants in the United States, their sunshine durat
 In Section 4 (_"Combining Four DataFrames into One"_), you will combine the four DataFrames from the previous section into one: `df_solar`: 
 
 
-Table 1: The columns in the sample data set
+_Table 1._ The columns in the sample data set
 
 | Column       | Example         | Data Sets                                |
 | :------------| :-------------- | :--------------------------------------- |
@@ -48,6 +48,8 @@ Table 1: The columns in the sample data set
 
 In the machine learning process, use the logarithm of the currents instead of the original currents to increase the model accuracy.
 
+![image](./usmap-actual.png "Actual solar power output of cities on the US map")
+_Figure 1._ Actual solar power output (US Geological Survey: 2025)
 
 #### Methodology
 
@@ -56,6 +58,8 @@ Split the `df_solar` DataFrame into two groups: the rows which have values in th
 For the first group of DataFrame which has values in the Current column, shuffle the rows by using the random seed 42, assign 75% of those rows to a training data set and the remaining 25% a test data set. Split each data set again into the feature DataSet $X$ and the prediction value $y$. Now you have four data sets: $X_{\textrm{train}}$, $y_{\textrm{train}}$, $X_{\textrm{test}}$, and $y_{\textrm{test}}$.
 
 To find the best algorithm and hyperparameters, apply cross validation for the first group of the DataFrame. That is, train the model $X_{\textrm{train}}$ and $y_{\textrm{train}}$ by using the following algorithms and hyperparameters: 
+
+_Table 2._ Algorithms and hyperparameters
 
 | Algorithm           | Method of scikit-learn     | Hyperparameter |
 |---------------------|----------------------------|-----------------------------|
@@ -79,6 +83,8 @@ $$\frac{1}{n_{\textrm{features}}}$$
 For each algorithm, train a model by using the training set $X_{\textrm{train}}$ and $y_{\textrm{train}}$, apply this model to $X_{\textrm{test}}$ to predict the current field, and get the mean square error (MSE) of the predicd current values with the actual values in $y_{\textrm{test}}$. Perform this operation for each hyperparameter to get the MSEs.
 
 
+_Table 3._ The lowest MSE score for each algorithm with the best hyperparameters
+
 Algorithm with best hyperparameters | Lowest MSE score
 ------------------------------------|-----------------
 Linear regression                   | 4.1537
@@ -99,7 +105,9 @@ Apply the same algorithm and the hyper parameter, that is, the k-nearest neighbo
 
 Sort the second group of data set by the predicted current. The cities with the high predicted current have features that are similar to the other cities in which solar power plants are already built. 
 
-**The most favorable cities to build solar power plants** with the highest predicted current are listed as follows:
+The most favorable cities to build solar power plants have the highest predicted current as shown in the following table:
+
+_Table 4._ **The most favorable cities to build solar power plants** 
 
 US City     | Land Value | Population | Density | Latitude | June | November | Current (MWh)
 ------------|------------|------------|---------|----------|------|----------|--------------
@@ -110,7 +118,9 @@ Amarillo, TX | $211,068 | 205,100 | 748.8 | 35.2 | 79 | 67 | 108.2
 Ely, NV | $255,374 | 3,941 | 199.5 | 39.3 | 81 | 65 | 108.2
 
 
-**The least favorable cities to build solar power plants** with the lowest predicted current are listed as follows:
+On the other hand, the least favorable cities to build solar power plants have the lowest predicted current as shown in the following table:
+
+_Table 5._ The least favorable cities to build solar power plants 
 
 US City     | Land Value | Population | Density | Latitude | June | November | Current (MWh)
 ------------|------------|------------|---------|----------|------|----------|--------------
@@ -122,7 +132,12 @@ Des Moines, IA | $227,345 | 560,170 | 930.5 | 41.6 | 69 | 45 | 11.6
 
 Again, the values in the "Land Value" column is the average price of a 3-bedroom house in the city, the values in the "November" and "June" columns are the number of sunshine hours in these months.
 
+![image](./usmap-predicted.png "Predicted solar power output")
+_Figure 2._ Predicted solar power output
+
 The following is a list of features, sorted by the importance score, you can get while training and assessing the models by using the first group: 
+
+_Table 6._ The importance score for each feature
 
 Feature | Importance Score
 --------|-----------------
@@ -155,4 +170,4 @@ The models and predicted currents they made could have questionable accuracies d
 
 The original city data set contains as many as 31,254 city records although it might not be meaningful to compare between two adjacent small cities such as Berkeley and Oakland. You may want to have a greater data set of sunshine hours for every US city&mdash;or every US county. There are 3,242 counties in the United States, and this number is still much greater than 133, and such a decent data set will make the model even more accurate. In that case, you may need to assess the algorithms and hyperparameters to rebuild a new, better model.
 
-You used 17 features, and these features might be quite relevant to predict the current of solar power plants&mdash;except the longitude. You may want to add more relevant features such as the distance from the sea, political factors such as the renewable energy policies in the local government, as well as "susipcious features" such as the elevation of the cities or counties.
+You used 17 features, and these features might be quite relevant to predict the current of solar power plants&mdash;except the longitude. You may want to add more relevant features such as the distance from the sea, political factors such as the renewable energy policies in the local government, as well as "uncertain features" such as the elevation of the cities or counties.
