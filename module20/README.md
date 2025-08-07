@@ -33,7 +33,7 @@ Check the existing solar power plants in the United States, their sunshine durat
 In Section 4 (_"Combining Four DataFrames into One"_), you will combine the four DataFrames from the previous section into one: `df_solar`: 
 
 
-_Table 1._ The columns in the sample data set
+_Table 1._&emsp;The columns in the sample data set
 
 | Column       | Example         | Data Sets                                |
 | :------------| :-------------- | :--------------------------------------- |
@@ -59,7 +59,7 @@ For the first group of DataFrame which has values in the Current column, shuffle
 
 To find the best algorithm and hyperparameters, apply cross validation for the first group of the DataFrame. That is, train the model $X_{\textrm{train}}$ and $y_{\textrm{train}}$ by using the following algorithms and hyperparameters: 
 
-_Table 2._ Algorithms and hyperparameters
+_Table 2._&emsp;Algorithms and hyperparameters
 
 | Algorithm           | Method of scikit-learn     | Hyperparameter |
 |---------------------|----------------------------|-----------------------------|
@@ -83,7 +83,7 @@ $$\frac{1}{n_{\textrm{features}}}$$
 For each algorithm, train a model by using the training set $X_{\textrm{train}}$ and $y_{\textrm{train}}$, apply this model to $X_{\textrm{test}}$ to predict the current field, and get the mean square error (MSE) of the predicd current values with the actual values in $y_{\textrm{test}}$. Perform this operation for each hyperparameter to get the MSEs.
 
 
-_Table 3._ The lowest MSE score for each algorithm with the best hyperparameters
+_Table 3._&emsp;The lowest MSE score for each algorithm with the best hyperparameters
 
 Algorithm with best hyperparameters | Lowest MSE score
 ------------------------------------|-----------------
@@ -107,7 +107,7 @@ Sort the second group of data set by the predicted current. The cities with the 
 
 The most favorable cities to build solar power plants have the highest predicted current as shown in the following table:
 
-_Table 4._ The most favorable cities to build solar power plants
+_Table 4._&emsp;The most favorable cities to build solar power plants
 
 US City          | Land Value | Population | Density | Latitude | March | December | Current (MWh)
 -----------------|------------|------------|---------|----------|-------|----------|--------------
@@ -120,7 +120,7 @@ Lake Charles, LA | $211,510   |    145,110 |   664.4 |     30.2 |    65 |       
 
 On the other hand, the least favorable cities to build solar power plants have the lowest predicted current as shown in the following table:
 
-_Table 5._ The least favorable cities to build solar power plants 
+_Table 5._&emsp;The least favorable cities to build solar power plants 
 
 US City         | Land Value | Population | Density | Latitude | March | December | Current (MWh)
 ----------------|------------|------------|---------|----------|-------|----------|--------------
@@ -137,7 +137,7 @@ _Figure 2._ Predicted solar power output
 
 The following is a list of features, sorted by the importance score, you can get while training and assessing the models by using the first group: 
 
-_Table 6._ The importance score for each feature
+_Table 6._&emsp;The importance score for each feature
 
 Feature    | Importance Score
 -----------|-----------------

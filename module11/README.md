@@ -6,6 +6,7 @@ April 15, 2025
 
 * Notebook: [./prompt_II.ipynb](./prompt_II.ipynb)
 
+
 ---
 
 To use this data analysis based on the given data set, your customers need to select models _elsewhere_ because the data set does not include sufficient information to distinguish one model or variant from another. For example, assume that someone is looking for a pickup truck with two rows of seats to sit six passengers such as some kind of Ford F-150. But Ford F-150 used to have a variant for a single-row seat configuration which is not what he is looking for. The data set put all kinds of Ford F-150 into the same model, and there is no "seat count" field. He would also prefer Chevy Silverado over Ford F-150 when it comes to the grill design.
@@ -48,11 +49,58 @@ The following cars are intentionally kept:
 
 ## Classifying cars into price tiers
 
+Classify the sample cars into three price tiers: cheap cars, typical cars, and expensive cars, as defined in *Table 1*. Cars with the price of $95,000 or even greater are considered "outliers".
+
+*Table 1.*&emsp;The price tier
+
 Price tier     | Minimum price | Maximum price | Percentile |
 ---------------|---------------|---------------|------------|
 Cheap cars     | $0            | $999          | 10.3%      |
 Typical cars   | $1,000        | $69,999       | 99.2%      |
 Expensive cars | $70,000       | $94,999       | 99.8%      |
+
+
+
+![image](./images/outliers.png "The built year vs. price: Ford F-150")
+
+*Fig 1.*&emsp;The original data set contained many cheap cars and (very) expensive cars.
+
+
+## Analyzing Data
+
+After cleaning and classifying the original data set, you can select most popular vehicle model, analyze those samples, and create a model for each vehicle model.
+
+![image](./images/dist-grade.png "The built year vs. price: Ford F-150")
+
+
+*Fig 2.*&emsp;The price distribution in terms of the odometer mileage and condition grade
+
+![image](./images/condition-mile-ford.png "The built year vs. price: Ford F-150")
+
+![image](./images/condition-mile-others.png "The built year vs. price: Ford F-150")
+
+*Fig 3.*&emsp;The price distribution in terms of the odometer mileage and condition grade
+
+
+![image](./images/condition-year-ford.png "The built year vs. price: Ford F-150")
+
+![image](./images/condition-year-others.png "The built year vs. price: Ford F-150")
+
+*Fig 4.*&emsp;The price distribution in terms of the model year and condition grade
+
+
+![image](./images/hyperbolic-ford-mile.png "The built year vs. price: Ford F-150")
+
+![image](./images/hyperbolic-others-mile.png "The built year vs. price: Ford F-150")
+
+*Fig 5.*&emsp;Price vs. odometer mileage and predicted prices based on the hyperbolic regression
+
+
+![image](./images/hyperbolic-ford.png "The odometer mileage vs. price: Ford F-150")
+
+![image](./images/hyperbolic-others.png "The odometer mileage vs. price: Ford F-150")
+
+*Fig 6.*&emsp;Price vs. model year and predicted prices based on the hyperbolic regression
 
 
 ## Modeling: Ridge regression on the LASSO model
@@ -74,6 +122,19 @@ where
 * $\alpha$ : the intercept term
 
 
+![image](./images/model-3d.png "The built year vs. price: Ford F-150")
+
+*Fig 7.* A 3-dimensional surface of $z$ for the predicted price in terms of $x$ for the odometer mileage and $y$ for the model year for Ford F-150
+
+Here is an example: 
+
+*Table 2.*&emsp;Sample Ford F-150 vehicle and preditect price tags
+
+Mileage  | Year | Price (predict)
+---------|------|----------------
+50,000   | 2015 | $32,300
+100,000  | 2015 | $28,132
+100,000  | 2005 | $12,148
 
 ---
 
