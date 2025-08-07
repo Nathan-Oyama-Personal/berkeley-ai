@@ -1,4 +1,4 @@
-### Capstone Project: the best and worst US cities to build solar plants
+### Capstone Project: The Best and Worst US Cities to Build Solar Power Plants
 
 * Nathan Oyama (Group C)
 * July 30, 2025
