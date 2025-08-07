@@ -87,16 +87,16 @@ _Table 3._ The lowest MSE score for each algorithm with the best hyperparameters
 
 Algorithm with best hyperparameters | Lowest MSE score
 ------------------------------------|-----------------
-Linear regression                   | 4.1537
-K-nearest neighbors                 | 3.0855
-Decision tree                       | 4.432
-Ridge regression                    | 3.991
-SVR                                 | 3.6409
-Ensemble voting regression          | 3.2892
+Linear regression                   | 5.629
+K-nearest neighbors                 | 3.5584
+Decision tree                       | 4.9343
+Ridge regression                    | 4.6874
+SVR                                 | 3.1469
+Ensemble voting regression          | 3.6852
 
-As you can see, the k-nearest neighbors returned the lowest MSE score which means that the model using this algorithm with a certain hyperparameter was the most accurate. Manually repeat this model assessment and find the best hyperparameter, and you can find the model with 5 neighbors returned the same lowest MSE score.
+As you can see, the SVR returned the lowest MSE score which means that the model using this algorithm with a certain hyperparameter was the most accurate. Manually repeat this model assessment and find the best hyperparameter, and you can find the model with the inverse regularization strength $C = 1.0$ returned the same lowest MSE score.
 
-Apply the same algorithm and the hyper parameter, that is, the k-nearest neighbors with 5 neighbors to the entire first group to train a new model which may be more accurate because of the larger sample data set. For the second group of the DataFrame which did not have a valid value in the Current field, drop the column to make a feature DataFrame $X_\textrm{predict}$. Apply the new model to the feature DataFrame $X_\textrm{predict}$ and you can get the predicted Current values for the 49 cities listed in the second group of the data set.
+Apply the same algorithm and the hyper parameter, that is, the SVR with the inverse of the regularization strength of 1.0 to the entire first group to train a new model which may be more accurate because of the larger sample data set. For the second group of the DataFrame which did not have a valid value in the Current field, drop the column to make a feature DataFrame $X_\textrm{predict}$. Apply the new model to the feature DataFrame $X_\textrm{predict}$ and you can get the predicted Current values for the 49 cities listed in the second group of the data set.
 
 **Note:** The codes used in this task are mostly based on the worksheet of Module 20 for this program: _"Comparing Aggregate Models for Regression"_ (try_it_20_1.ipynb). 7 May 2025.
 
@@ -107,28 +107,28 @@ Sort the second group of data set by the predicted current. The cities with the 
 
 The most favorable cities to build solar power plants have the highest predicted current as shown in the following table:
 
-_Table 4._ **The most favorable cities to build solar power plants** 
+_Table 4._ The most favorable cities to build solar power plants
 
-US City     | Land Value | Population | Density | Latitude | June | November | Current (MWh)
-------------|------------|------------|---------|----------|------|----------|--------------
-Key West, FL | $1,285,405 | 25,824 | 1780.7 | 24.6 | 77 | 71 | 361.9
-Jackson, MS | $85,274 | 331,332 | 518.0 | 32.3 | 70 | 55 | 161.2
-Flagstaff, AZ | $650,010 | 77,868 | 446.4 | 35.2 | 88 | 72 | 129.6
-Amarillo, TX | $211,068 | 205,100 | 748.8 | 35.2 | 79 | 67 | 108.2
-Ely, NV | $255,374 | 3,941 | 199.5 | 39.3 | 81 | 65 | 108.2
+US City          | Land Value | Population | Density | Latitude | March | December | Current (MWh)
+-----------------|------------|------------|---------|----------|-------|----------|--------------
+Key West, FL     | $1,285,405 |    25,824  |  1780.7 |     24.6 |    84 |       73 | 215.4
+Flagstaff, AZ    | $650,010   |    77,868  |   446.4 |     35.2 |    72 |       76 | 179.6
+Juneau, AK       | $490,940   |    31,969  |     4.6 |     58.5 |    38 |       21 | 144.4
+Anchorage, AK    | $392,4280  |    289,069 |    65.4 |     61.1 |    51 |       33 | 129.0
+Lake Charles, LA | $211,510   |    145,110 |   664.4 |     30.2 |    65 |       49 | 116.0
 
 
 On the other hand, the least favorable cities to build solar power plants have the lowest predicted current as shown in the following table:
 
 _Table 5._ The least favorable cities to build solar power plants 
 
-US City     | Land Value | Population | Density | Latitude | June | November | Current (MWh)
-------------|------------|------------|---------|----------|------|----------|--------------
-Omaha, NE | $278,435 | 826,161 | 1318.9 | 41.3 | 72 | 49 | 8.6
-Dodge City, KS | $237,736 | 27,652 | 711.1 | 37.8 | 77 | 63 | 10.1
-Concordia, KS | $143,484 | 5,067 | 434.4 | 39.6 | 78 | 59 | 10.1
-Tulsa, OK | $217,766 | 740,620 | 805.1 | 36.1 | 66 | 50 | 10.8
-Des Moines, IA | $227,345 | 560,170 | 930.5 | 41.6 | 69 | 45 | 11.6
+US City         | Land Value | Population | Density | Latitude | March | December | Current (MWh)
+----------------|------------|------------|---------|----------|-------|----------|--------------
+Des Moines, IA  | $227,345   |    560,170 |  930.5  | 41.5725  |    55 |       43 | 13.1
+Omaha, NE       | $278,435   |    826,161 | 1318.9  | 41.2627  |    59 |       47 | 14.4
+Fort Wayne, IN  | $227,793   |    345,279 |  919.8  | 41.0888  |    57 |       36 | 15.0
+Sprintfield, IL | $181,895   |    156,240 |  716.7  | 39.7709  |    51 |       40 | 16.0
+Bismarck, ND    | $326,276   |     99,060 |  825.4  | 46.8143  |    61 |       45 | 16.7
 
 Again, the values in the "Land Value" column is the average price of a 3-bedroom house in the city, the values in the "November" and "June" columns are the number of sunshine hours in these months.
 
@@ -139,34 +139,34 @@ The following is a list of features, sorted by the importance score, you can get
 
 _Table 6._ The importance score for each feature
 
-Feature | Importance Score
---------|-----------------
-lat | 0.059882
-NOV | 0.032363
-JUL | 0.031565
-Land Value | 0.027916
-MAY | 0.024683
-density | 0.024294
-FEB | 0.016571
-JAN | 0.012489
-population | 0.009800
-APR | 0.005774
-AUG | 0.003775
-MAR | 0.001454
-DEC | -0.006241
-JUN | -0.009242
-OCT | -0.010082
-lng | -0.010163
-SEP | -0.012938
+Feature    | Importance Score
+-----------|-----------------
+lat        |  0.058682
+MAR        |  0.045618
+APR        |  0.036491
+DEC        |  0.024510
+MAY        |  0.022250
+JAN        |  0.018695
+FEB        |  0.017350
+JUL        |  0.017348
+population |  0.013674
+NOV        |  0.009247
+SEP        |  0.008612
+AUG        |  0.002530
+JUN        | -0.001248
+Land Value | -0.003987
+OCT        | -0.005272
+lng        | -0.016822
+density    | -0.036010
 
-That is, the latitude is the most important factor to determine the predicted current of each city. Other important features are the sunshine hours of November and July; November ends 20 days prior to the winter solstice, and July starts 10 days after the summer solstice. Interestingly enough, the sunshine hours of December and June have relatively low important scores. The other important features are the land value which is the average price of the 3-bedroom houses and the population density. The population of the city has the moderate importance score. The least important features are the sunshine hours of September and October, and the longitude which might not be very relevant to the economy or climate of the cities.
+The latitude is the most important factor to determine the predicted current of each city. Other important features are the sunshine hours of March, April, and December; November ends 20 days prior to the winter solstice. Interestingly enough, the sunshine hours of June have relatively low important scores. The population was more important than the land value, longitude, and density. The least important feature was the density&mdash;indeed, you see Juneau, Alaska in the third place and Anchorage in the fourth place while their densities are significantly different. The longitude was not an important feature and it sounds reasonable.
 
-The results look reasonable. The most favorable city to build a new solar power plant is Key West, Florida, which is the southernmost city of Florida, observes many sunshine hours in summer and winter. Note that the land value of Key West is very high which might imply that people there should be wealthy enough to invest, build, and operate solar power plants. The least favorable city to build a new solar power plant was Omaha, Nebraska. Omaha rarely observes sunshine hours in winter, and the land value is relatively low despite the large population and high population density.
+The most favorable city to build a new solar power plant is Key West, Florida, which is the southernmost city of Florida, observes many sunshine hours in summer and winter. Note that the land value of Key West is very high which might imply that people there should be wealthy enough to invest, build, and operate solar power plants. The least favorable city to build a new solar power plant was Des Moines, Idaho. Des Moines observes few sunshine hours in March and December, and the latitude of this city is in between the one of Juneau, Alaska, and the oen of Key West, Florida.
 
 
 #### Further analysis
 
-The models and predicted currents they made could have questionable accuracies due to the small sample data set. The original data set for the sunshine hours only contains 158 city records. Merging other data sets reduces this number to even lower: 133 city records. In the 133 city records, 84 city records have the current values whereas the other 49 records do not. With this small sample set, you built the model based on the 84 city records and predicted the currents of 49 cities.
+The models and predicted currents they made could have questionable accuracies due to the small sample data set. The original data set for the sunshine hours only contains 152 city records. Merging other data sets reduces this number to even lower: 134 city records. In the 134 city records, 84 city records have the current values whereas the other 49 records do not. With this small sample set, you built the model based on the 85 city records and predicted the currents of 49 cities.
 
 The original city data set contains as many as 31,254 city records although it might not be meaningful to compare between two adjacent small cities such as Berkeley and Oakland. You may want to have a greater data set of sunshine hours for every US city&mdash;or every US county. There are 3,242 counties in the United States, and this number is still much greater than 133, and such a decent data set will make the model even more accurate. In that case, you may need to assess the algorithms and hyperparameters to rebuild a new, better model.
 
