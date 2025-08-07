@@ -1,18 +1,18 @@
 # Nathan Oyama's Workspace for UC Berkeley Machine Learning &amp; Artificial Intelligence (January 2025)
 
-I have created this Git repository for my assignment work in the online bootcamp at University of California, Berkeley: ["the Professional Certificate in Machine Learning and Artificial Intelligence"](https://em-executive.berkeley.edu/professional-certificate-machine-learning-artificial-intelligence) ([Web Archive of January 2025](https://web.archive.org/web/20241119023126/https://em-executive.berkeley.edu/professional-certificate-machine-learning-artificial-intelligence)). I enrolled in the course on January 15, 2025 and completed it on August 4.
+I have created this Git repository for my assignment work of the online bootcamp at University of California, Berkeley: ["the Professional Certificate in Machine Learning and Artificial Intelligence"](https://em-executive.berkeley.edu/professional-certificate-machine-learning-artificial-intelligence) ([Web Archive of January 2025](https://web.archive.org/web/20241119023126/https://em-executive.berkeley.edu/professional-certificate-machine-learning-artificial-intelligence)). I enrolled in the course on January 15, 2025 and completed it on August 4.
 
 As the course name suggests, this course focused on machine learning (ML) and artificial intelligence (AI) designing&ndash;more precisely, the course covered the following topics: 
 
-* major algorithms for numerical prediction, time-series analysis, (non-)linear classification, and clustering: logistic regression, ridge regression with L1/L2 regularization, k-nearest neighbors, decision trees, and support vector classification (SVC)
-* ensemble techniques: bagging, boosting like AdaBoost, voting regression and gradient-boosted trees
-* recommendation systems using the Simon Funk SVD gradient descent algorithm and the SURPRISE library
-* natural language processing (NLP) using the natural language toolkit (NLTK) library
-* convolutional/deep neural network (DNN) using Keras for TensorFlow
-* generative AI using Groq
-* mathematical interpretation
-* model implementation using pandas, scikit-learn, and SciPy for Python
-* data visualization using matplotlib and Plotly
+* Major algorithms for numerical prediction, time-series analysis, (non-)linear classification, and clustering: logistic regression, ridge regression with L1/L2 regularization, k-nearest neighbors, decision trees, and support vector classification (SVC)
+* Ensemble techniques: bagging, boosting like AdaBoost, voting regression and gradient-boosted trees
+* Recommendation systems using the Simon Funk SVD gradient descent algorithm and the SURPRISE library
+* Natural language processing (NLP) using the natural language toolkit (NLTK) library
+* Convolutional/deep neural network (DNN) using Keras for TensorFlow
+* Generative AI using Groq
+* Mathematical interpretation
+* Model implementation using pandas, scikit-learn, and SciPy for Python
+* Data visualization using matplotlib and Plotly
 
 I'd like to thank Professor Amit Jambhekar, Aravind Reddy, and all other faculty staff for their incredible support during the course. I would also like to thank my _"classmates"_ who helped me facilitate discussion and shared insightful ideas.
 
