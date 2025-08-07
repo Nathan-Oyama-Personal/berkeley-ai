@@ -25,7 +25,7 @@ Decide the following parameters to predict the price of a car:
 
 **Odometer mileage** Most cars have the odometer mileage reading between 0 mile and 299,999 miles. I discarded other cars which drove 300,000 miles or even more as instructed in the next section.
 
-**Model year** Most records contain one of the model years ranging betwen 1900 and 2022.
+**Built year** Most records contain one of the built years ranging betwen 1900 and 2022.
 
 
 
@@ -86,7 +86,7 @@ After cleaning and classifying the original data set, you can select most popula
 
 ![image](./images/condition-year-others.png "The built year vs. price: Ford F-150")
 
-*Fig 4.*&emsp;The price distribution in terms of the model year and condition grade
+*Fig 4.*&emsp;The price distribution in terms of the built year and condition grade
 
 
 ![image](./images/hyperbolic-ford-mile.png "The built year vs. price: Ford F-150")
@@ -100,14 +100,14 @@ After cleaning and classifying the original data set, you can select most popula
 
 ![image](./images/hyperbolic-others.png "The odometer mileage vs. price: Ford F-150")
 
-*Fig 6.*&emsp;Price vs. model year and predicted prices based on the hyperbolic regression
+*Fig 6.*&emsp;Price vs. built year and predicted prices based on the hyperbolic regression
 
 
 ## Modeling: Ridge regression on the LASSO model
 
 Use the Ridge regression on the LASSO model.
 
-* **Input:** odometer (mileage), model year
+* **Input:** odometer (mileage), built year
 
 * **Output:** price
 
@@ -121,12 +121,13 @@ where
 * $d$ : the number of features/parameters
 * $\alpha$ : the intercept term
 
+Build such a model with the sample data set of Ford F-150. You can draw a 3-dimensional surface to see how the two featuers, the odometer mileage and built year affect the predcited price.
 
 ![image](./images/model-3d.png "The built year vs. price: Ford F-150")
 
-*Fig 7.* A 3-dimensional surface of $z$ for the predicted price in terms of $x$ for the odometer mileage and $y$ for the model year for Ford F-150
+*Fig 7.* A 3-dimensional surface of $z$ for the predicted price in terms of $x$ for the odometer mileage and $y$ for the built year for Ford F-150
 
-Here is an example: 
+For example, consider that there is the 2015 model of Ford F-150, and its odometer reads 100,000 miles. Input these two feature values and you get the prediction output: $28,132. If the same 2015 model has been driven only 50,000 miles, the predicted price increases to $32,300. And if the built year was as old as 2005, the predicted price decreases to $12,148. These three price tags reflect what you have seen in the charts from the previous section.
 
 *Table 2.*&emsp;Sample Ford F-150 vehicle and preditect price tags
 
@@ -136,7 +137,8 @@ Mileage  | Year | Price (predict)
 100,000  | 2015 | $28,132
 100,000  | 2005 | $12,148
 
+You can remake such a price prediction model for any other cars as long as you have a considerable number of valid sample records. Again, you cannot combine those models and create a universal one because vehicle models and their price tags often vary a lot. &marker;
+
 ---
 
 Nathan Oyama. nathan.oyama[&alpha;&tau;]berkeley.edu.
-
